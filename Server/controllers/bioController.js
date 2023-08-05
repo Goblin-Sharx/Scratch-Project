@@ -12,3 +12,10 @@ bioController.getBio = async (req, res, next) => {
 }
 
 module.exports = bioController;
+
+// Client needs to get a obj witht he following format
+const sampleResponseObj = {
+    bio: "string with 256 characters",
+    topTracks: [ "string Name 1", "string Name 2", "string Name 3", "string Name 4"]
+};
+
