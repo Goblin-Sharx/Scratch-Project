@@ -1,0 +1,34 @@
+{
+    "Manhattan": {
+      "Harlem": ["Duke Ellington", "Billie Holiday", "Ella Fitzgerald", "Count Basie", "Louis Armstrong", "Charlie Parker"],
+      "Greenwich Village": ["Bob Dylan", "Simon & Garfunkel", "Joan Baez", "Jimi Hendrix"],
+      "Chelsea": ["Lou Reed", "The Velvet Underground", "Patti Smith"],
+      "Upper West Side": ["George Gershwin", "Leonard Bernstein"],
+      "Midtown": ["Frank Sinatra", "Tony Bennett"],
+      "Lower East Side": ["The Ramones", "Blondie"],
+      "Upper East Side": ["Carly Simon", "The Talking Heads"]
+    },
+    "Brooklyn": {
+      "Bedford-Stuyvesant (Bed-Stuy)": ["Jay-Z", "The Notorious B.I.G."],
+      "Williamsburg": ["The Yeah Yeah Yeahs", "TV on the Radio"],
+      "Coney Island": ["The Drifters"],
+      "Bushwick": ["A Tribe Called Quest"],
+      "Brooklyn Heights": ["Lena Horne"],
+      "DUMBO": ["Mos Def", "Talib Kweli"]
+    },
+    "Bronx": {
+      "South Bronx": ["Afrika Bambaataa", "KRS-One"],
+      "Grand Concourse": ["Jennifer Lopez (J.Lo)"],
+      "Hunts Point": ["Big Pun", "Slick Rick"]
+    },
+    "Queens": {
+      "Astoria": ["Tony Bennett", "Christopher Cross"],
+      "Jackson Heights": ["Ray Barretto"],
+      "Hollis": ["Run-D.M.C.", "LL Cool J"],
+      "Flushing": ["Paul Simon"],
+      "Far Rockaway": ["The Ramones"]
+    },
+    "Staten Island": {
+      "St. George": ["Wu-Tang Clan"]
+    }
+  }
