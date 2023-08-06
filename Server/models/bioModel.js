@@ -3,17 +3,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema; // assign it to the schema method
 
 // set a person schema
-const artistsSchema = new Schema({
+const bioSchema = new Schema({
   borough: String,
-  neighborhood : Number,
-  artist: Array,  
+  neighborhood : String,
+  artists: Array,  
 });
 
 // create our model
-const Artists = mongoose.model('artist', artistsSchema);
+const Bio = mongoose.model('bio', bioSchema);
 
 // export model through module.exports
-module.exports = Artists;
+module.exports = Bio;
 
 // {
 //     "tracks": [

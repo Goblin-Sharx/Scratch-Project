@@ -1,40 +1,54 @@
 // add model here
-const Artists = require()
+const Artists = require('../models/bioModel.js');
 const bioController = {};
 
 bioController.getBio = async (req, res, next) => {
     // req.body = { borough: 'Manhattan', neighborhood: 'Chelsea'}
-    console.log("getBio controler req.body ->", req.body); // what client is sending
+    console.log("getBio controller req.body ->", req.body); // what client is sending
 
-    const realtedArrOfArtis = .find({borough: req.body.borough, neighborhood: req.body.neighborhood});
+    const { borough, neighborhood } = req.body; // deconstruct request body from the client 
+
+    const artistsDoc = await Artists.find({ // find the matching document
+      borough: borough,
+      neighborhoods: neighborhood,
+    });
     
-    // get from API
-    fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${Cher}&api_key=862f626353cd4f436ca98225718860b6&format=json`)
+    const testAllMongoDB = await Artists.find({});
+    console.log("All MongoDB data -> ", testAllMongoDB);
+
+    const arrOfArtist = artistsDoc[0].artists; // select the array of artists
+    console.log("arrOfArtist ->", arrOfArtist);
+
+    /* Uncomment to check all our MongoDB data if needed -- eg. No Harlem 
+     const resultArtist = arrOfArtist[Math.floor(Math.random() * (arrOfArtist.length - 1))];
+     console.log("resultArtist ->", resultArtist);
+    */
+
+    // Get from Last FM API using the res.locals.bio
+    fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${resultArtist}&api_key=862f626353cd4f436ca98225718860b6&format=json`)
     .then((data) => {
       return data.json(); 
       // when you first receive the response back, you MUST .json() the response
     })
     .then((data) => {
-      console.log(data);
+      res.locals.bio = data.artist.bio.summary;
+      console.log(`fetching ${resultArtist} from Last FM result bio---->`, res.locals.bio);
     })
     .catch((err) => console.log('Error retrieving data from the server: ', err));
-
-
-    res.locals.bio = {
-
-        bio: 'Jay-Z is a rapper. Shawn Corey Carter, known professionally as Jay-Z, is an American rapper, record producer, and entrepreneur. Widely regarded as one of the greatest rappers of all time, he has been central to the creative and commercial success of artists including Kanye West, Rihanna, and J. Cole.'
-    }
     return next();
 }
 
 module.exports = bioController;
 
-// Client needs to get a obj witht he following format
+/* // Client needs to get a obj with he following format
 const sampleResponseObj = {
     bio: "string with 256 characters",
     topTracks: [ "string Name 1", "string Name 2", "string Name 3", "string Name 4"]
 };
-// req.body.artist.bio.sumary - string only get the +-
+*/
+
+/* // Sample from Last FM 
+// data.artist.bio.summary - string only get the +-
 const sampleFromLastFM = {
     "artist": {
         "name": "Cher",
@@ -264,3 +278,4 @@ const sampleFromLastFM = {
         }
     }
 }
+*/

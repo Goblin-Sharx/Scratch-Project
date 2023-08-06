@@ -19,8 +19,8 @@ mongoose.connect(uri, {
 
 const connection = mongoose.connection; // connect to library imported in line 2
 
-app.use('/bio', bioRouter);//switched to api
-app.use('/tracks', tracksRouter);
+app.use('/', bioRouter);//switched to api
+// app.use('/', tracksRouter);
 
 
 connection.once('open', () => { //invoke the cb one time when the connection is made
