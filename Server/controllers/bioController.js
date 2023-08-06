@@ -5,7 +5,6 @@ const bioController = {};
 bioController.getBio = async (req, res, next) => {
     // req.body = { borough: 'Manhattan', neighborhood: 'Chelsea'}
     console.log("getBio controller req.body ->", req.body); // what client is sending
-
     const { borough, neighborhood } = req.body; // deconstruct request body from the client 
 
     const artistsDoc = await Artists.find({ // find the matching document
@@ -13,16 +12,17 @@ bioController.getBio = async (req, res, next) => {
       neighborhoods: neighborhood,
     });
     
+    /* // Uncomment to check all our MongoDB data if needed -- eg. No Harlem 
     const testAllMongoDB = await Artists.find({});
     console.log("All MongoDB data -> ", testAllMongoDB);
+    */
 
     const arrOfArtist = artistsDoc[0].artists; // select the array of artists
-    console.log("arrOfArtist ->", arrOfArtist);
+    // console.log("arrOfArtist ->", arrOfArtist, );
+    const randomIndex = Math.floor(Math.random() * (arrOfArtist.length));
+    const resultArtist = arrOfArtist[randomIndex];
+    console.log("resultArtist ->", resultArtist);
 
-    /* Uncomment to check all our MongoDB data if needed -- eg. No Harlem 
-     const resultArtist = arrOfArtist[Math.floor(Math.random() * (arrOfArtist.length - 1))];
-     console.log("resultArtist ->", resultArtist);
-    */
 
     // Get from Last FM API using the res.locals.bio
     fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${resultArtist}&api_key=862f626353cd4f436ca98225718860b6&format=json`)
@@ -31,11 +31,15 @@ bioController.getBio = async (req, res, next) => {
       // when you first receive the response back, you MUST .json() the response
     })
     .then((data) => {
-      res.locals.bio = data.artist.bio.summary;
+      res.locals.bio = {bio: data.artist.bio.summary};
       console.log(`fetching ${resultArtist} from Last FM result bio---->`, res.locals.bio);
+      next();
     })
-    .catch((err) => console.log('Error retrieving data from the server: ', err));
-    return next();
+    .catch((err) => next({
+        log: `Express error handler caught getBio middleware error when fetching data from Last FM. Additional information: ${err}`,
+        status: 400,
+        message: { err: 'An error occurred' },
+    }));
 }
 
 module.exports = bioController;
