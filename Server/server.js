@@ -19,8 +19,8 @@ mongoose.connect(uri, {
 
 const connection = mongoose.connection; // connect to library imported in line 2
 
-app.use('/', bioRouter);//switched to api
-// app.use('/router', tracksRouter);
+app.use('/bio', bioRouter);//switched to api
+app.use('/tracks', tracksRouter);
 
 
 connection.once('open', () => { //invoke the cb one time when the connection is made
@@ -44,16 +44,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => console.log(`Server App Listening at http://localhost${PORT}`));
-
-
-
-
-
-
-
-
-
-
 
 
 

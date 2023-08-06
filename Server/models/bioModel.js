@@ -1,3 +1,20 @@
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema; // assign it to the schema method
+
+// set a person schema
+const artistsSchema = new Schema({
+  borough: String,
+  neighborhood : Number,
+  artist: Array,  
+});
+
+// create our model
+const Artists = mongoose.model('artist', artistsSchema);
+
+// export model through module.exports
+module.exports = Artists;
+
 // {
 //     "tracks": [
 //       {
