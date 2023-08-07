@@ -6,10 +6,9 @@ import Button from './Button.jsx'
 const Map = (props) => {
 
     return (
-        <div style={{backgroundImage: `url(${background})`}} className="bg">
-
-            <Button />
-
+        <div> 
+            <img className="bg" src={background}/> 
+            <Button class="MapButton"/>
         </div>
     )
 }
