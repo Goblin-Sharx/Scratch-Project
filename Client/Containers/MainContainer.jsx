@@ -19,7 +19,7 @@ const MainContainer = () => {
   };
 
   return (
-      <div className="bg">
+      <div>
       <Map />
       </div>
   );

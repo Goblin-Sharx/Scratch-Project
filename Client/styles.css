@@ -5,28 +5,27 @@
      background-repeat: no-repeat;
 } */
 
-.MapComponent {
+/* .MapComponent {
     width: 100vw;
     height: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 
 
 .Harlem {
-    margin-left: 200px;
+    
+    position: relative;
+    margin-top: 300px;
+    margin-left: 625px;
 }
   
 .bg {
-    /* The image used */
-    /* background-image: url("../_assets/New-York-City-neighborhoods-blank resized.png"); */
     
-    /* Full height */
     height: 100vw; 
-  
-    /* Center and scale the image nicely */
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
