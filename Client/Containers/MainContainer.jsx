@@ -1,6 +1,7 @@
 import React from 'react';
-import ModalContainer from './ModalContainer.jsx';
-import axios from "axios";
+// import ModalContainer from './ModalContainer.jsx';
+import Map from '../Components/Map.jsx';
+
 
 const MainContainer = () => {
     const handleClick = () => {
@@ -18,10 +19,9 @@ const MainContainer = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleClick}>Click Me!</button>
-      <ModalContainer />
-    </div>
+      <div className="bg">
+      <Map />
+      </div>
   );
 };
 

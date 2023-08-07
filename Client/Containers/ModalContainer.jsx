@@ -1,15 +1,13 @@
-import React from 'react';
+// import React from 'react';
 
 
-const ModalContainer = () => {
+// const ModalContainer = () => {
 
 
-    return (
-        <div>
-            Test
-        </div>
-    )
-}
+//     // return (
+  
+//     // )
+// }
 
 
-export default ModalContainer;
+// export default ModalContainer;

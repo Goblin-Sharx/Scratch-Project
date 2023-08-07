@@ -33,7 +33,8 @@
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.64.1",
     "sass-loader": "^13.3.2",
-    "webpack": "^5.57.1"
+    "webpack": "^5.57.1",
+    "webpack-image-loader": "^0.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
@@ -43,11 +44,11 @@
     "concurrently": "^6.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
     "isomorphic-fetch": "^3.0.0",
     "nodemon": "^2.0.7",
     "style-loader": "^3.3.3",
-    "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.15.1"
-  }
+    "webpack-cli": "^4.8.0"
+   }
 }
