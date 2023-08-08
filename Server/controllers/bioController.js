@@ -6,9 +6,9 @@ bioController.getBio = async (req, res, next) => {
     // req.body = { borough: 'Manhattan', neighborhood: 'Chelsea'}
     console.log("getBio controller req.body ->", req.body); // what client is sending
     const { neighborhood } = req.body; // deconstruct request body from the client 
-
+    console.log(req.body)
     const artistsDoc = await Artists.find({ // find the matching document
-      neighborhoods: neighborhood,
+      neighborhoods: `${neighborhood}`,
     });
     
     console.log('artistsDoc :', artistsDoc)

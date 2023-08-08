@@ -8,6 +8,11 @@ const Button = () => {
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
     let neighborhoodId;
+    let bio;
+
+    const changeModalIsOpen = () => {
+        setIsOpen(false);
+    }
 
     const buttonClick = (event) => {
         setIsOpen(true);
@@ -15,29 +20,25 @@ const Button = () => {
         console.log(neighborhoodId)
 
     
+        event.preventDefault();
         fetch('/api/bio', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "neighborhoods": neighborhoodId })
+            body: JSON.stringify({ "neighborhood": neighborhoodId })
           })
         .then((data) => {
           return data.json(); 
         })
         .then((data) => {
-          console.log(data);
+          console.log(data.bio);
         })
         .catch((err) => console.log('Error retrieving data from the server: ', err));
-      
     };
-
-    const changeModalIsOpen = () => {
-        setIsOpen(false);
-    }
-
-
+    
+    
     return (
         <>
             <div className="Neighborhood" id="Harlem"><button onClick={buttonClick}>Harlem</button></div>
@@ -54,7 +55,7 @@ const Button = () => {
             <div className="Neighborhood" id="GrandConcourse"><button onClick={buttonClick}>Grand Concourse</button></div>
             <div className="Neighborhood" id="Morrisania"><button onClick={buttonClick}>Morrisania</button></div>
             <div className="Neighborhood" id="StatenIsland"><button onClick={buttonClick}>Staten Island</button></div>
-            <ModalContainer  modalIsOpen={modalIsOpen} changeModalIsOpen={changeModalIsOpen} neighborhoodId={neighborhoodId} />
+            <ModalContainer bio={bio} modalIsOpen={modalIsOpen} changeModalIsOpen={changeModalIsOpen} neighborhoodId={neighborhoodId} />
         </>
     )
 }

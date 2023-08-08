@@ -17,7 +17,7 @@ const ModalContainer = (props) => {
     function closeModal() {
         setIsOpen(false);
     }
-
+    
 
     return (
         <div className="modalClass">
@@ -33,10 +33,8 @@ const ModalContainer = (props) => {
             <div>I am a modal</div>
             <form>
               <input />
-              <button>tab navigation</button>
-              <button>stays</button>
-              <button>inside</button>
-              <button>the modal</button>
+              <button>Hear me roar</button>
+              <p>{props.bio}</p>
             </form>
           </Modal>
         </div>
