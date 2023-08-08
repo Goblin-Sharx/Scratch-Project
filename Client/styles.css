@@ -1,0 +1,116 @@
+/* .MainContainer {
+    background-color: blue;
+     width: 100vw;
+     background-position: center;
+     background-repeat: no-repeat;
+} */
+
+
+.modalClass {
+    height: 50px
+}
+
+.MapButton {
+    position: fixed;
+    /* content:; */
+}
+
+.Neighborhood {
+    position: fixed;
+    border: 1px solid blue;
+    background-color: rgba(0, 128, 100, 0.101);
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+    text-align: center;
+    
+}
+
+#Harlem {    
+    margin-top: 275px;
+    margin-left: 675px;
+}
+
+#GreenwhichVillage {
+    /* position: sticky */
+    margin-top: 510px;
+    margin-left: 535px;
+    /* z-index: 100; */
+}
+
+#LowerEastSide {
+    margin-top: 550px;
+    margin-left: 600px;
+}
+
+#Midtown{
+    margin-top: 450px;
+    margin-left: 600px;
+}
+
+#UpperWestSide{
+    margin-top: 350px;
+    margin-left: 600px;
+}
+
+#BedfordStuyvesant{
+    margin-top: 650px;
+    margin-left: 700px;
+}
+#Williamsburg{
+    margin-top: 550px;
+    margin-left: 675px;
+}
+#BrooklynHeights{
+    margin-top: 625px;
+    margin-left: 600px;
+}
+#ConeyIsland{
+    margin-top: 850px;
+    margin-left: 800px;
+    triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-top: 50px solid #555;
+    }
+}
+
+#Astoria{
+    margin-top: 420px;
+    margin-left: 750px;
+}
+#ForestHills{
+    margin-top: 420px;
+    margin-left: 950px;
+}
+#GrandConcourse{
+    margin-top: 250px;
+    margin-left: 725px;
+}
+#Morrisania{
+    margin-top: 250px;
+    margin-left: 750px;
+}
+#StatenIsland{
+    margin-top: 850px;
+    margin-left: 300px;
+}
+  
+.bg {
+    position: fixed;
+    top: 0px;
+    /* float:  */
+    width: 1300px;
+    /* z-index: -999; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+
+.Neighborhood button {
+    border: 0 solid white;
+    background-color: rgba(255, 255, 255, 0);
+    
+}

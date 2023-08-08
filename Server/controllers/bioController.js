@@ -5,17 +5,17 @@ const bioController = {};
 bioController.getBio = async (req, res, next) => {
     // req.body = { borough: 'Manhattan', neighborhood: 'Chelsea'}
     console.log("getBio controller req.body ->", req.body); // what client is sending
-    const { borough, neighborhood } = req.body; // deconstruct request body from the client 
-
+    const { neighborhood } = req.body; // deconstruct request body from the client 
+    console.log(req.body)
     const artistsDoc = await Artists.find({ // find the matching document
-      borough: borough,
-      neighborhoods: neighborhood,
+      neighborhoods: `${neighborhood}`,
     });
     
-    /* // Uncomment to check all our MongoDB data if needed -- eg. No Harlem 
-    const testAllMongoDB = await Artists.find({});
-    console.log("All MongoDB data -> ", testAllMongoDB);
-    */
+    console.log('artistsDoc :', artistsDoc)
+    // Uncomment to check all our MongoDB data if needed -- eg. No Harlem 
+    // const testAllMongoDB = await Artists.find({});
+    // console.log("All MongoDB data -> ", testAllMongoDB);
+    
 
     const arrOfArtist = artistsDoc[0].artists; // select the array of artists
     // console.log("arrOfArtist ->", arrOfArtist, );
